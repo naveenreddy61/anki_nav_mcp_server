@@ -11,9 +11,10 @@ This is an Anki MCP (Model Context Protocol) server that enables LLMs to interac
 - **FastMCP Framework**: Uses FastMCP for MCP protocol implementation with STDIO transport
 - **AnkiConnect Integration**: HTTP client communicating with AnkiConnect API at `http://localhost:8765`
 - **Core Components**:
-  - `src/anki_client.py`: HTTP client for AnkiConnect API communication
-  - `src/tools.py`: Business logic for Anki operations
-  - `src/main.py`: FastMCP server setup and tool registration
+  - `src/anki_naveen_mcp_server/anki_client.py`: HTTP client for AnkiConnect API communication
+  - `src/anki_naveen_mcp_server/tools.py`: Business logic for Anki operations
+  - `src/anki_naveen_mcp_server/server.py`: FastMCP server setup and tool registration
+  - `src/anki_naveen_mcp_server/__init__.py`: Package entry point
 
 ## Prerequisites
 
@@ -74,13 +75,13 @@ Add this configuration to Claude Desktop's `claude_desktop_config.json`:
 ## Common Development Tasks
 
 ### Adding New Tools
-1. Add method to `AnkiTools` class in `src/tools.py`
+1. Add method to `AnkiTools` class in `src/anki_naveen_mcp_server/tools.py`
 2. Add corresponding AnkiConnect method to `AnkiClient` if needed
-3. Register tool with `@mcp.tool` decorator in `src/main.py`
+3. Register tool with `@mcp.tool` decorator in `src/anki_naveen_mcp_server/server.py`
 
 ### Testing AnkiConnect Locally
 ```python
-from src.anki_client import AnkiClient
+from anki_naveen_mcp_server.anki_client import AnkiClient
 client = AnkiClient()
 client.check_connection()  # Should return True if Anki is running
 ```

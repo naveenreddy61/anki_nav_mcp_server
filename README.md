@@ -24,7 +24,7 @@ A Model Context Protocol (MCP) server that enables LLMs to interact with Anki fl
    - Anki must be running when using the server
 
 2. **AnkiConnect Add-on**
-   - Install from Anki: Tools ¿ Add-ons ¿ Get Add-ons
+   - Install from Anki: Tools ï¿½ Add-ons ï¿½ Get Add-ons
    - Add-on code: `2055492159`
    - Or visit: [AnkiConnect on AnkiWeb](https://ankiweb.net/shared/info/2055492159)
 
@@ -88,9 +88,9 @@ Tags: spanish, greetings
 
 ```
 Create these flashcards in my "Math" deck:
-1. What is 2+2? ¿ 4
-2. What is 3×3? ¿ 9
-3. What is 10÷2? ¿ 5
+1. What is 2+2? ï¿½ 4
+2. What is 3ï¿½3? ï¿½ 9
+3. What is 10ï¿½2? ï¿½ 5
 ```
 
 ### Creating a New Deck
@@ -123,7 +123,7 @@ The server uses these default settings:
 
 ### "Note type 'X' does not exist"
 - Use exact note type names (e.g., "Basic", "Cloze", "Basic (and reversed card)")
-- Check available note types in Anki: Tools ¿ Manage Note Types
+- Check available note types in Anki: Tools ï¿½ Manage Note Types
 
 ### Permission or Path Issues
 - Ensure the path in Claude Desktop config is correct
@@ -152,7 +152,9 @@ curl -X POST http://localhost:8765 \
 anki_naveen_mcp_server/
    src/
       __init__.py
-      main.py           # FastMCP server and tool registration
+      anki_naveen_mcp_server/
+          # Package entry point
+         server.py         # FastMCP server and tool registration
       anki_client.py    # AnkiConnect HTTP client
       tools.py          # Business logic for Anki operations
    pyproject.toml        # Project configuration
